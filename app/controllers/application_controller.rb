@@ -10,6 +10,6 @@ class ApplicationController < ActionController::API
     end
 
     def require_login
-        # return redirect_to '/login' unless logged_in?
+        render json: { status: 401, errors: current_user.errors.full_messages } unless logged_in?
     end
 end
