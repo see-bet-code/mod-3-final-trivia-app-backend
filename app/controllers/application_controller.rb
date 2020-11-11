@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
     before_action :current_user
 
     def current_user
-        @user = (User.find_by(id: session[:user_id]) || User.new)
+        @user = (User.find_by(id: session[:user_id]))
     end
 
     def logged_in?
@@ -10,6 +10,6 @@ class ApplicationController < ActionController::API
     end
 
     def require_login
-        # return redirect_to '/login' unless logged_in?
+        render json: { status: "error", code: 401, message: current_user.errors.full_messages } unless logged_in?
     end
 end
