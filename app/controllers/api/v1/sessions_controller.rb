@@ -11,7 +11,7 @@ class Api::V1::SessionsController < ApplicationController
                 user: user
             }
         else
-            render json: { status: 401 }
+            render json: { status: 401, message: "Username/password combo does not exist" }
         end  
     end
 
