@@ -10,46 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_213813) do
+ActiveRecord::Schema.define(version: 2020_11_09_212055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
+    t.string "category"
+    t.string "difficulty"
+    t.boolean "leader?", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.string "text"
-    t.string "answer"
-    t.bigint "round_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["round_id"], name: "index_questions_on_round_id"
-  end
-
-  create_table "rounds", force: :cascade do |t|
-    t.string "category"
-    t.integer "difficulty"
-    t.bigint "game_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_rounds_on_game_id"
-  end
-
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "username"
     t.string "password_digest"
     t.integer "points"
-    t.boolean "premium?"
+    t.boolean "premium?", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "games", "users"
-  add_foreign_key "questions", "rounds"
-  add_foreign_key "rounds", "games"
 end
