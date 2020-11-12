@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :username
       t.string :password_digest
-      t.integer :points
       t.boolean :premium?, default: false, null: false
 
       t.timestamps
