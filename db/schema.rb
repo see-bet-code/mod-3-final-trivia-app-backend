@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_212055) do
   create_table "games", force: :cascade do |t|
     t.string "category"
     t.string "difficulty"
-    t.boolean "leader?", default: false, null: false
+    t.integer "points"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_11_09_212055) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
-    t.integer "points"
     t.boolean "premium?", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -5,14 +5,13 @@ class Api::V1::GamesController < ApplicationController
     end
 
     def create
-        user = User.new(user_params)
-        unless user.save
+        game = Game.new(game_params)
+        unless game.save
             render json: { status: 500 }
         else
-            session[:user_id] = user.id
             render json: {
-                status: :created,
-                user: user
+                status: :added,
+                game: game
             }
         end
     end
@@ -20,10 +19,11 @@ class Api::V1::GamesController < ApplicationController
     private
 
     def game_params
-        params.require(:game).permit(
+        params.permit(
             :category,
             :difficulty,
-            :user
+            :points,
+            :user_id
         )
     end
 end

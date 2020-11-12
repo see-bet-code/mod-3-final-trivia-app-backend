@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
     create_table :games do |t|
       t.string :category
       t.string :difficulty
-      t.boolean :leader?, default: false, null: false
+      t.integer :points
       t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps

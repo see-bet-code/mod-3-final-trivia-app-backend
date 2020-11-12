@@ -46,10 +46,4 @@ class Api::V1::UsersController < ApplicationController
         )
     end
 
-    def user_points_params
-        params.require(:user).permit(
-            :points
-        )
-    end
-
 end
