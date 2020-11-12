@@ -4,7 +4,7 @@ class Api::V1::GamesController < ApplicationController
         render json: game
     end
 
-    def show
+    def index
         games = Game.all
         render json: games
     end
