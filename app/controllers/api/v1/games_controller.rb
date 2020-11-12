@@ -4,6 +4,11 @@ class Api::V1::GamesController < ApplicationController
         render json: game
     end
 
+    def show
+        games = Game.all
+        render json: games
+    end
+
     def create
         game = Game.new(game_params)
         unless game.save
