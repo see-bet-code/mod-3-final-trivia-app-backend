@@ -43,8 +43,7 @@ class Api::V1::UsersController < ApplicationController
             :username,
             :password,
             :password_confirmation,
-            :avatar,
-            games: []
+            :avatar_url
         )
     end
 

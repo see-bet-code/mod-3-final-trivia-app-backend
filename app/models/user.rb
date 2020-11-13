@@ -5,6 +5,4 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     has_secure_password
 
-    #active storage association
-    has_one_attached :avatar
 end

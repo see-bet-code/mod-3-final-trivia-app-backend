@@ -1,4 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :password_digest, :premium?
+  include Rails.application.routes.url_helpers
+
+  attributes :id, :name, :username, :password_digest, :avatar_url, :premium?
   has_many :games
+
 end
