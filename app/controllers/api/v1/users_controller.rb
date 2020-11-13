@@ -42,7 +42,9 @@ class Api::V1::UsersController < ApplicationController
             :name,
             :username,
             :password,
-            :password_confirmation
+            :password_confirmation,
+            :avatar,
+            games: []
         )
     end
 

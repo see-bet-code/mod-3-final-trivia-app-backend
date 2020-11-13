@@ -44,3 +44,6 @@ gem "active_model_serializers", "~> 0.10.10"
 
 # Project specific gems
 gem 'faker'
+
+#AWS for AS
+gem "aws-sdk-s3", require: false
